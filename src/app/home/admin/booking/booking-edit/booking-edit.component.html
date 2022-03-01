@@ -1,0 +1,96 @@
+<div class="alert alert-fill-danger" role="alert" *ngIf="messageError">
+  <i class="mdi mdi-alert-circle"></i>
+  {{message}}
+</div>
+<div class="alert alert-fill-success" role="alert" *ngIf="messageSuccess">
+  <i class="mdi mdi-alert-circle"></i>
+  {{message}}
+</div>
+<div class="row">
+  <div class="col-12 grid-margin">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title">แก้ไขข้อมูล</h4>
+        <form class="form-sample" [formGroup]="inputForm">
+
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group row">
+                <label class="col-sm-3 col-form-label">ชื่อสมาชิก</label>
+                <div class="col-sm-9">
+                  <select class="form-control" formControlName="idUser" (change)="this.getUserList">
+                    <option value="" selected>กรุณาเลือก</option>
+                    <option *ngFor="let item of userList" value={{item.iduser}}>{{item.fname}} {{item.lname}}</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group row">
+                <label class="col-sm-3 col-form-label">รหัสอาหารหมู</label>
+                <div class="col-sm-9">
+                  <select class="form-control" formControlName="idPorkfeed" (change)="this.getPorkfeedList">
+                    <option value="" selected>กรุณาเลือก</option>
+                    <option *ngFor="let item of porkfeedList" value={{item.idPorkfeed}}>{{item.porkfeedName}}({{item.porkfeedPrice}}:บาท) </option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group row">
+                <label class="col-sm-3 col-form-label">วันที่</label>
+                <div class="col-sm-9">
+                  <input type="date" class="form-control" formControlName="time" />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group row">
+                <label class="col-sm-3 col-form-label">จำนวนสั่งซื้อ</label>
+                <div class="col-sm-9">
+                  <input type="text" class="form-control" formControlName="oderquantity" />
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group row">
+                <label class="col-sm-3 col-form-label">ราคารวม</label>
+                <div class="col-sm-9">
+                  <input type="text" class="form-control" formControlName="totalprice" />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group row">
+                <label class="col-sm-3 col-form-label">สถานะ </label>
+                <div class="col-sm-9">
+                  <div class="col-sm-9">
+                    <input type="radio" formControlName="odStatus" value="N" />
+                    <label class="col-sm-3 col-form-label">รอ</label>
+                    <input type="radio" formControlName="odStatus" value="Y" /><label
+                      class="col-sm-3 col-form-label">เสร็จ</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </form>
+        <div class="row">
+          <button type="button" (click)="onSubmit()" class="btn btn-success btn-fw">บันทึก</button>
+          <button type="button" (click)="onBackLocation()"
+            class="btn btn-secondary btn-fw">ย้อนกลับ</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

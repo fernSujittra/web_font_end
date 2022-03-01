@@ -1,0 +1,253 @@
+<div class="alert alert-fill-danger" role="alert" *ngIf="messageError">
+  <i class="mdi mdi-alert-circle"></i>
+  {{message}}
+</div>
+<div class="alert alert-fill-success" role="alert" *ngIf="messageSuccess">
+  <i class="mdi mdi-alert-circle"></i>
+  {{message}}
+</div>
+<div class="row">
+  <div class="col-12 grid-margin">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title">แก้ไขข้อมูล</h4>
+        <form class="form-sample" [formGroup]="inputForm">
+
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group row">
+                <label class="col-sm-3 col-form-label">เลขบัตรประชาชน</label>
+                <div class="col-sm-9">
+                  <input type="text" class="form-control" formControlName="cardId" />
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group row">
+                <label class="col-sm-3 col-form-label">รหัสสถานะ</label>
+                <div class="col-sm-9">
+                  <select class="form-control" formControlName="idrole"  (change)="this.getRoleList">
+                    <option value="" selected>กรุณาเลือก</option>
+                    <option *ngFor="let item of roleList" value={{item.idRole}}>{{item.roleName}} </option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group row">
+                <label class="col-sm-3 col-form-label">username</label>
+                <div class="col-sm-9">
+                  <input type="text" class="form-control" formControlName="username" />
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group row">
+                <label class="col-sm-3 col-form-label">รหัสผ่าน</label>
+                <div class="col-sm-9">
+                  <input type="text" class="form-control" formControlName="password" />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group row">
+                <label class="col-sm-3 col-form-label">ชื่อ</label>
+                <div class="col-sm-9">
+                  <input type="text" class="form-control" formControlName="fname" />
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group row">
+                <label class="col-sm-3 col-form-label">นามสกุล</label>
+                <div class="col-sm-9">
+                  <input type="text" class="form-control" formControlName="lname" />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group row">
+                <label class="col-sm-3 col-form-label">วัน เดือน ปี เกิด</label>
+                <div class="col-sm-9">
+                  <input type="date" class="form-control" formControlName="birthDate" />
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group row">
+                <label class="col-sm-3 col-form-label">อายุ</label>
+                <div class="col-sm-9">
+                  <input type="text" class="form-control" formControlName="age" />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group row">
+                <label class="col-sm-3 col-form-label">เพศ</label>
+                <div class="col-sm-9">
+                  <select  class="form-control"  formControlName="sex">
+                    <option value="">Please choose one</option>
+                    <option value="หญิง">หญิง</option>
+                    <option value="ชาย">ชาย</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group row">
+                <label class="col-sm-3 col-form-label">เบอร์โทร</label>
+                <div class="col-sm-9">
+                  <input type="text" class="form-control" formControlName="phone" />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group row">
+                <label class="col-sm-3 col-form-label">อาชีพ</label>
+                <div class="col-sm-9">
+                  <input type="text" class="form-control" formControlName="career" />
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group row">
+                <label class="col-sm-3 col-form-label">รายได้</label>
+                <div class="col-sm-9">
+                  <input type="text" class="form-control" formControlName="earnings" />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group row">
+                <label class="col-sm-3 col-form-label">เงินลงทุน</label>
+                <div class="col-sm-9">
+                  <input type="text" class="form-control" formControlName="investment" />
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group row">
+                <label class="col-sm-3 col-form-label">ใบเสร็จ</label>
+                <div class="col-sm-9">
+                  <input type="text" class="form-control" formControlName="receipt" />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group row">
+                <label class="col-sm-3 col-form-label">roleName</label>
+                <div class="col-sm-9">
+                  <input type="text" class="form-control" formControlName="roleName" />
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group row">
+                <label class="col-sm-3 col-form-label">บ้านเลขที่</label>
+                <div class="col-sm-9">
+                  <input type="text" class="form-control" formControlName="homeNumber" />
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group row">
+                <label class="col-sm-3 col-form-label">หมู่บ้าน</label>
+                <div class="col-sm-9">
+                  <input type="text" class="form-control" formControlName="home" />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group row">
+                <label class="col-sm-3 col-form-label">ถนน</label>
+                <div class="col-sm-9">
+                  <input type="text" class="form-control" formControlName="road" />
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group row">
+                <label class="col-sm-3 col-form-label">ซอย</label>
+                <div class="col-sm-9">
+                  <input type="text" class="form-control" formControlName="alley" />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group row">
+                <label class="col-sm-3 col-form-label">ตำบล</label>
+                <div class="col-sm-9">
+                  <input type="text" class="form-control" formControlName="tombonName" />
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group row">
+                <label class="col-sm-3 col-form-label">อำเภอ</label>
+                <div class="col-sm-9">
+                  <input type="text" class="form-control" formControlName="aumphurName" />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group row">
+                <label class="col-sm-3 col-form-label">จังหวัด</label>
+                <div class="col-sm-9">
+                  <input type="text" class="form-control" formControlName="provinceName" />
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group row">
+                <label class="col-sm-3 col-form-label">รหัสไปรษณีย์</label>
+                <div class="col-sm-9">
+                  <input type="text" class="form-control" formControlName="postCode" />
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </form>
+        <div class="row">
+          <button type="button" (click)="onSubmit()" class="btn btn-success btn-fw">บันทึก</button>
+          <button type="button" (click)="onBackLocation()"
+            class="btn btn-secondary btn-fw">ย้อนกลับ</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

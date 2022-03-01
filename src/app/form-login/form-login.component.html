@@ -1,0 +1,21 @@
+<div class="alert alert-fill-danger" role="alert" *ngIf="messageError">
+  <i class="mdi mdi-alert-circle"></i>
+  ชื่อผู้ใช้หรือรหัสผ่านไม่ถูกต้อง กรุณาลองใหม่อีกครั้ง
+</div>
+<br />
+<br />
+<br />
+<br />
+<div class="wrapper fadeInDown">
+  <div id="formContent">
+    <div class="fadeIn first">
+      <label>ลงชื่อเข้าสู่ระบบ</label>
+    </div>
+    <form class="form-sample" [formGroup]="inputForm">
+      <input type="text" class="fadeIn second" formControlName="UserName" placeholder="ชื่อผู้ใช้งาน" />
+      <input type="password" id="password" class="fadeIn third text-center" formControlName="password"
+        placeholder="รหัสผ่าน" />
+      <input type="submit" class="fadeIn fourth" value="Log In" (click)="login()">
+    </form>
+  </div>
+</div>

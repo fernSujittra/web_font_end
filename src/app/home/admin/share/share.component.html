@@ -1,0 +1,37 @@
+
+<div class="row">
+  <div class="col-lg-16 grid-margin stretch-card">
+    <div class="card">
+      <div class="card-body">
+        <h3 class="card-title">ข้อมูลหุ้นทั้งหมด</h3>
+        <br />
+        <div class="table-responsive">
+          <p-dataTable [value]="shareList" [emptyMessage]="'ไม่พบข้อมูล'" [responsive]="true"
+            [rowsPerPageOptions]="[5,10,20]" [pageLinks]="5" [(selection)]="selected" [paginator]="true"
+            [scrollable]="true" [rows]="5" [headerCheckboxToggleAllPages]="true">
+            <p-column [style]="{'width':'5%'}" selectionMode="multiple"></p-column>
+            <p-column field="idUser" header="ชื่อสมาชิก" [style]="{'width':'15%'}">
+              <ng-template let-item="rowData" let-index="rowIndex" pTemplate="body">
+                <span>{{item.fname}} {{item.lname}}</span>
+              </ng-template>
+            </p-column>
+            <p-column field="numberShares" header="จำนวนหุ้น" [style]="{'width':'12%'}"></p-column>
+            <p-column field="priceShares" header="ราคาหุ้น" [style]="{'width':'15%'}"></p-column>
+            <p-column field="monthShare" header="เดือน" [style]="{'width':'12%'}"></p-column>
+            <p-column field="yearShare" header="ปี" [style]="{'width':'15%'}"></p-column>
+            <p-column field="manage" header="จัดการ" [style]="{'width':'15%'}">
+              <ng-template let-item="rowData" let-index="rowIndex" pTemplate="body">
+                <button type="button" routerLink="edit" class="btn btn-warning btn-fw "  (click)="edit(item)">แก้ไข</button>
+                <button type="button" class="btn btn-danger btn-fw " (click)="deletedList(item)">ลบ</button>
+              </ng-template>
+            </p-column>
+          </p-dataTable>
+
+        </div>
+        <br />
+        <button type="button" routerLink="add" class="btn btn-success btn-fw">เพิ่มข้อมูล</button>
+        <button type="button" class="btn btn-danger btn-fw btn-fw" (click)="deletedList()">ลบรายการที่เลือก</button>
+      </div>
+    </div>
+  </div>
+</div>

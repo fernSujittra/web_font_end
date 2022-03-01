@@ -1,0 +1,73 @@
+<div class="row">
+  <div class="col-12 grid-margin">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title">ข้อมูลส่วนตัว</h4>
+        <form class="form-sample" [formGroup]="inputForm">
+          <div *ngIf="roleType === 'ผู้บริหาร'">
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group row">
+                  <label class="col-sm-3 col-form-label">ชื่อ</label>
+                  <div class="col-sm-9">
+                    <input type="text" class="form-control" formControlName="fname" />
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group row">
+                  <label class="col-sm-3 col-form-label">นามสกุล</label>
+                  <div class="col-sm-9">
+                    <input type="text" class="form-control" formControlName="lname" />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div *ngIf="roleType === 'พนักงาน'">
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group row">
+                  <label class="col-sm-3 col-form-label">ชื่อ</label>
+                  <div class="col-sm-9">
+                    <input type="text" class="form-control" formControlName="fname" />
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group row">
+                  <label class="col-sm-3 col-form-label">นามสกุล</label>
+                  <div class="col-sm-9">
+                    <input type="text" class="form-control" formControlName="lname" />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div *ngIf="roleType === 'สมาชิก'">
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group row">
+                  <label class="col-sm-3 col-form-label">ชื่อ</label>
+                  <div class="col-sm-9">
+                    <input type="text" class="form-control" formControlName="fname" />
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group row">
+                  <label class="col-sm-3 col-form-label">นามสกุล</label>
+                  <div class="col-sm-9">
+                    <input type="text" class="form-control" formControlName="lname" />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

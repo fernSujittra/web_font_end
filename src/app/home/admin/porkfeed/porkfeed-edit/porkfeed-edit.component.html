@@ -1,0 +1,101 @@
+<div class="alert alert-fill-danger" role="alert" *ngIf="messageError">
+  <i class="mdi mdi-alert-circle"></i>
+  {{message}}
+</div>
+<div class="alert alert-fill-success" role="alert" *ngIf="messageSuccess">
+  <i class="mdi mdi-alert-circle"></i>
+  {{message}}
+</div>
+<div class="row">
+  <div class="col-12 grid-margin">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title">แก้ไขข้อมูล</h4>
+        <form class="form-sample" [formGroup]="inputForm">
+
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group row">
+                <label class="col-sm-3 col-form-label">ชื่ออาหารหมู</label>
+                <div class="col-sm-9">
+                  <input type="text" class="form-control" formControlName="porkfeedName" />
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <div class="form-group row">
+                <label class="col-sm-3 col-form-label">รายละเอียดสินค้า</label>
+                <div class="col-sm-9">
+                  <input type="text" class="form-control" formControlName="porkfeedDetails" />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group row">
+                <label class="col-sm-3 col-form-label">จำนวนสินค้า ซื้อ</label>
+                <div class="col-sm-9">
+                  <input type="text" class="form-control" formControlName="porkfeedQuantityCost" readonly/>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group row">
+                <label class="col-sm-3 col-form-label">ราคาสินค้า ซื้อ</label>
+                <div class="col-sm-9">
+                  <input type="text" class="form-control" formControlName="porkfeedPriceCost" />
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- <div class="row">
+            <div class="col-md-6">
+              <div class="form-group row">
+                <label class="col-sm-3 col-form-label">รวม ซื้อ</label>
+                <div class="col-sm-9">
+                  <input type="text" class="form-control" formControlName="sumCost" readonly/>
+                </div>
+              </div>
+            </div>
+          </div> -->
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group row">
+                <label class="col-sm-3 col-form-label">จำนวนสินค้า ขาย</label>
+                <div class="col-sm-9">
+                  <input type="text" class="form-control" formControlName="porkfeedQuantity" readonly/>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group row">
+                <label class="col-sm-3 col-form-label">ราคาสินค้า ขาย</label>
+                <div class="col-sm-9">
+                  <input type="text" class="form-control" formControlName="porkfeedPrice" />
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- <div class="row">
+            <div class="col-md-6">
+              <div class="form-group row">
+                <label class="col-sm-3 col-form-label">รวม ขาย</label>
+                <div class="col-sm-9">
+                  <input type="text" class="form-control" formControlName="sumPrice" readonly/>
+                </div>
+              </div>
+            </div>
+          </div> -->
+
+        </form>
+        <div class="row">
+          <button type="button" (click)="onSubmit()" class="btn btn-success btn-fw">บันทึก</button>
+          <button type="button" (click)="onBackLocation()"
+            class="btn btn-secondary btn-fw">ย้อนกลับ</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
